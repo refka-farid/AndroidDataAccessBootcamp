@@ -2,8 +2,8 @@ package com.bravedroid.dataaccess.fetching.local.file;
 
 import android.Manifest;
 import android.content.Context;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.rule.GrantPermissionRule;
+import androidx.test.InstrumentationRegistry;
+import androidx.test.rule.GrantPermissionRule;
 import org.junit.*;
 
 import static org.hamcrest.CoreMatchers.equalTo;

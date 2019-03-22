@@ -1,7 +1,7 @@
 package com.bravedroid.dataaccess.fetching.local.file;
 
 import android.content.Context;
-import android.support.test.InstrumentationRegistry;
+import androidx.test.InstrumentationRegistry;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.BeforeClass;

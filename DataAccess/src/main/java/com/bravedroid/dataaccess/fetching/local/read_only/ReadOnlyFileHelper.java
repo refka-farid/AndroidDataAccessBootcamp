@@ -3,7 +3,7 @@ package com.bravedroid.dataaccess.fetching.local.read_only;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.AsyncTask;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.bravedroid.dataaccess.R;
 
 import java.io.IOException;
