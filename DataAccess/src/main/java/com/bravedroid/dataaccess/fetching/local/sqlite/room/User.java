@@ -1,11 +1,10 @@
 package com.bravedroid.dataaccess.fetching.local.sqlite.room;
 
 import androidx.annotation.NonNull;
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
+import androidx.room.*;
 
-@Entity
+
+@Entity(indices = {@Index(value = {"first_name", "last_name"}, unique = true)})
 public class User {
     @PrimaryKey
     @NonNull
@@ -16,4 +15,7 @@ public class User {
 
     @ColumnInfo(name = "last_name")
     public String lastName;
+
+    @Embedded
+    public Address address;
 }
