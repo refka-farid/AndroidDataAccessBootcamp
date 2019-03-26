@@ -4,11 +4,12 @@ import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
 import androidx.room.*;
 
-@Fts4(languageId = "lid")
+//@Fts4(languageId = "lid")
 @Entity(tableName = "books",
         foreignKeys = @ForeignKey(entity = User.class,
                 parentColumns = "uid",
-                childColumns = "user_id"))
+                childColumns = "user_id"),
+        indices = {@Index(value = {"user_id"}, unique = true)})
 public class Book {
     // Specifying a primary key for an FTS-table-backed entity is optional, but
     // if you include one, it must use this type and column name.
@@ -22,8 +23,8 @@ public class Book {
     @Ignore
     Bitmap picture;
 
-    @ColumnInfo(name = "lid")
-    int languageId;
+    // @ColumnInfo(name = "lid")
+    // int languageId;
 
     @ColumnInfo(name = "user_id")
     @NonNull

@@ -3,11 +3,19 @@ package com.bravedroid.dataaccess.fetching.local.sqlite.room;
 import androidx.annotation.NonNull;
 import androidx.room.*;
 
+import java.util.Date;
 
-@Entity(indices = {@Index(value = {"first_name", "last_name"}, unique = true)})
+
+@Entity(indices = {@Index(value = {"first_name", "last_name"}, unique = true),
+        @Index(value = {"language_id"})},
+
+        foreignKeys = @ForeignKey(entity = Language.class,
+                parentColumns = "name",
+                childColumns = "language_id"
+        ))
 public class User {
-    @PrimaryKey
     @NonNull
+    @PrimaryKey
     public String uid;
 
     @ColumnInfo(name = "first_name")
@@ -18,4 +26,10 @@ public class User {
 
     @Embedded
     public Address address;
+
+    public String region;
+    @ColumnInfo(name = "language_id")
+    public String languageId;
+
+    public Date birthday;
 }
