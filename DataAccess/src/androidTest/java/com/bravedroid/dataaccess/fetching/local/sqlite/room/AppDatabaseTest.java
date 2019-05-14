@@ -35,7 +35,7 @@ public class AppDatabaseTest {
         SUT.bookDao().deleteAll();
         SUT.userDao().deleteAll();
         SUT.LanguageDao().deleteAll();
-        SUT.close();
+        //SUT.close();
     }
 
 
@@ -61,7 +61,7 @@ public class AppDatabaseTest {
 
     @Test
     public void UpdateTest() {
-        User specialUser = createSpecialUser();
+        User specialUser = createSpecialUserWithNoLanguage();
         SUT.userDao().insertOneUser(specialUser);
         specialUser.firstName = "miral";
         SUT.userDao().updateUsers(specialUser);
@@ -176,6 +176,14 @@ public class AppDatabaseTest {
         user.firstName = "zeyneb";
         user.lastName = "mhiri";
         user.languageId = "French";
+        return user;
+    }
+
+    private User createSpecialUserWithNoLanguage() {
+        User user = new User();
+        user.uid = "1111";
+        user.firstName = "zeyneb";
+        user.lastName = "mhiri";
         return user;
     }
 
